@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" scroll-behavior: smooth;>
+<head>
+    <title>Lee Wen Wu CV</title>
+
+    <!--CSS-->
+    <style type="text/css">
+        .navi {
+            overflow:hidden;
+            position:fixed;
+            top:0;
+        }
+
+        .buttons {
+            padding: 10px 10px;
+            text-align: center;
+            border-radius: 25px;
+            font-family: Courier New, Courier, monospace;
+            cursor: pointer;
+        }
+
+        .slider {
+            height: auto;
+            width: auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        
+
+        .slide.active {
+            opacity: 1;
+        }
+
+    </style>
+
+    <!--JavaScript code-->
+    <script>
+        /**A function that shows the "Age" and "Living country" when mouse over */
+        function MouseOverAgeCountry() {
+            var x = document.getElementById("ageCountry");
+            x.style.visibility = "visible";
+        }
+
+        /**A function that hides the "Age" and "Living country" when mouse out */
+        function MouseOutAgeCountry() {
+            var x = document.getElementById("ageCountry");
+            x.style.visibility = "hidden";
+        }
+
+        // Phrases options that appears behind the "I am" words in the "I am" section
+        const I_am = ["Steven Lee.", "a physics graduate.", "a CS student.", "a future developer.", "a future teacher."];
+
+        // Description options in the "I am" section
+        const brief = ["I like to code and learn new skills. I am interested in science and technology.",
+            "I completed my bachelor degree in physics in Germany.I wrote my Bachelor thesis under the semiconductor physics department.",
+            "I am doing a second degree in computer science in Malaysia, where I am expanding my computer related knowledge.",
+            "I have many ideas in my mind, and I want to turn them into real apps and business in the future.",
+            "I am also passionate in teaching, especially about physics, computer science and maths, because I am enthusiastic about them and I would like to spread the love."]
+
+        // Background images for the "I am" section
+        var background = ["images/minionHi.gif", "images/wave.gif", "images/helloWorld.gif", "images/coding.gif", "images/teacher.gif"];
+
+        var count = 0; // Counter that will be used in the nextButton() and prevButton() functions
+
+        /**A function for the "Next" button in the "I am" section to get the next content */
+        function nextButton() {
+            if (count == 4) {
+                count = 0;
+            }
+            else {
+                count++;
+            }
+            
+            iAmDescrptBG();
+        }
+
+        /**A function for the "Prev" button in the "I am" section to get the previous content */
+        function prevButton() {
+            if (count == 0) {
+                count = 4;
+            }
+            else {
+                count--;
+            }
+
+            iAmDescrptBG();
+        }
+
+        /**A function to be called by the "Next" and "Prev" buttons' functions to change the contents */
+        function iAmDescrptBG() {
+            document.getElementById("iAm").innerHTML = I_am[count]; // Change the words behind "I am"
+            document.getElementById("briefDescription").innerHTML = brief[count]; // Change the brief description in the "I am" section
+            document.getElementById("iAmBackground").style.backgroundImage = "url('" + background[count] + "')" ; // Change the image in the "I am" section
+        }
+
+        /**A function for button to show or hide the details about the "Programming languages" subsubsection */
+        function moreProgLangFunc() {
+            var x = document.getElementById("moreProgLanguage");
+            var btn = document.getElementById("btnPrgLangMore");
+            if (x.style.visibility == "collapse") {
+                btn.innerHTML = "Less";
+                x.style.visibility = "visible";
+            }
+            else {
+                btn.innerHTML = "More";
+                x.style.visibility = "collapse";
+            }
+        }
+
+        /**A function for button to show or hide the details about the "Human languages" subsubsection */
+        function moreLangFunc() {
+            var x = document.getElementById("moreLanguage");
+            var btn = document.getElementById("btnLangMore");
+            if (x.style.visibility == "collapse") {
+                btn.innerHTML = "Less";
+                x.style.visibility = "visible";
+            }
+            else {
+                btn.innerHTML = "More";
+                x.style.visibility = "collapse";
+            }
+        }
+
+        /**A function for button to show or hide the details about education in GMI*/
+        function btnReadMoreGmi_Click() {
+            var panGMI = document.getElementById("panGMI");
+            var readMoreGmi = document.getElementById("readMoreGmi");
+            if(panGMI.style.display === "none"){
+                panGMI.style.display = "block";
+                readMoreGmi.textContent = "Read Less";
+            }
+            else{
+                panGMI.style.display = "none";
+                readMoreGmi.textContent = "Read More";
+            }
+        }
+
+        /**A function for button to show or hide the details about education in Uni Leipzig*/
+        function btnReadMoreLeipzig_Click() {
+            var panLeipzig = document.getElementById("panLeipzig");
+            var readMoreLeipzig = document.getElementById("readMoreLeipzig");
+            if(panLeipzig.style.display === "none"){
+                panLeipzig.style.display = "block";
+                readMoreLeipzig.textContent = "Read Less";
+            }
+            else{
+                panLeipzig.style.display = "none";
+                readMoreLeipzig.textContent = "Read More";
+            }
+        }
+
+        /**A function for button to show or hide the details about education in Inti*/
+        function btnReadMoreInti_Click() {
+            var panINTI = document.getElementById("panINTI");
+            var readMoreInti = document.getElementById("readMoreInti");
+            if(panINTI.style.display === "none"){
+                panINTI.style.display = "block";
+                readMoreInti.textContent = "Read Less";
+            }
+            else{
+                panINTI.style.display = "none";
+                readMoreInti.textContent = "Read More";
+            }
+        }
+
+        /**A function for button to show or hide the email */
+        function showEmail_Click() {
+            var x = document.getElementById("email");
+            var btn = document.getElementById("showEmail");
+            if (x.style.visibility == "collapse") {
+                btn.innerHTML = "Hide Email";
+                x.style.visibility = "visible";
+            }
+            else {
+                btn.innerHTML = "Show Email";
+                x.style.visibility = "collapse";
+            }
+        }
+
+    </script>
+</head>
+
+
+<body style="margin:0 0 0 0;">
+
+    <!--Navigation bar section-->
+    <div class="navi" style="font-family:'Courier New', Courier, monospace; width:100%;">
+        <table style="width: 100%; font-size: 25px; font-weight: bold; color: #FFFFFF; background-color: #0066FF; padding-top: 20px;">
+            <tr>
+                <td style="text-align:center; width:10%; height:2.5cm;" onmouseover="MouseOverAgeCountry()" onmouseout="MouseOutAgeCountry()">
+                    <a href="#I_Am"><img src="images/steven.png" style="height: 2.1cm;"></a>
+                    <!--<asp:HyperLink ID="hypSteven" runat="server" ImageUrl="~/images/steven.png" ImageHeight="2.1cm" NavigateUrl="#I_Am">Steven's Photo</asp:HyperLink>-->
+                </td>
+                <td style="text-align:left; width:40%;">
+                    <a href="#I_Am" style="color:#FFFFFF; text-decoration:none;" onmouseover="MouseOverAgeCountry()" onmouseout="MouseOutAgeCountry()">Steven-Lee-Wen-Wu</a><span id="ageCountry" style="visibility:hidden; color:white; margin-left:30px; font-size:15px;">25 years old (2022); Lives in Malaysia</span>
+                </td>
+                <td style="text-align:center; width:12%;"><a href="#education" style="text-decoration: none; color: #FFFFFF;">Education</a>&nbsp;</td>
+                <td style="text-align:center; width:12%;"><a href="#skills" style="text-decoration: none; color: #FFFFFF;">Skills</a>&nbsp;</td>
+                <td style="text-align:center; width:12%;"><a href="#projects" style="text-decoration: none; color: #FFFFFF;">Projects</a>&nbsp;</td>
+                <td style="text-align:center; padding-right:20px;"><a href="#contact" style="text-decoration: none; color: #FFFFFF;">Contact</a></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--Separator division-->
+    <div id="I_Am" style="padding-left:60px; height:3.5cm; width:95%; overflow:hidden;"></div>
+
+    <!--"I Am" section-->
+    <div style="font-family: 'Courier New', Courier, monospace; padding-left: 60px; padding-top: 10px; overflow:hidden; width:95%;">
+        <table style="width: 100%;">
+            <tr style="vertical-align:top; height:8cm;">
+                <td style="width: 60%">
+                    <!--Hello World!-->
+                    <h1 style="font-size: 60px"><span class="auto-type0"></span></h1>
+
+                    <!--Slides begin-->
+                    <h1 style="font-size: 60px">I am <span id="iAm" style="color: #0033cc">Steven Lee.</span></h1>
+                    <p id="briefDescription" style="font-size: 35px; height: 5cm;">I like to code and learn new skills. I am interested in science and technology.</p>
+                </td>
+
+                <td id="iAmBackground" style="background-image: url('images/minionHi.gif'); background-repeat: no-repeat; background-position: center; background-size:contain; width:40%;"></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <button type="button" class="buttons" onclick="prevButton()" style="border-style: none; font-size: 35px; background-color: #0066FF; color:white;">Prev</button>
+                    <button type="button" class="buttons" onclick="nextButton()" style="border-style: none; font-size: 35px; background-color: #0066FF; color:white;">Next</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--Separator table-->
+    <div style="padding-left:60px;">
+        <br />
+        <table style="width: 95%;">
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+
+            <tr>
+                <td id="education">
+                    <hr />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+        </table>
+    </div>
+
+    
+    <!--Script Manager-->
+    <!--<asp:ScriptManager ID="scriptManager" runat="server"></asp:ScriptManager>-->
+
+
+    <!--Education section-->
+    <div style="padding-left:60px; font-family:Courier New, Courier, monospace;">
+        <!--Education section title-->
+        <h1 style="font-size: 60px; color: darkorange; text-align:center;"><span class="auto-type1"></span></h1>
+
+        <!--Education overview panel-->
+        <div id="panEduOverview">
+            <table style="width: 100%;">
+                <tr style="text-align:center">
+                    <td style="text-align:center; width: 33%">
+                        <h4>GCE A-Level</h4>
+                        <h4>2015 - 2017</h4>
+                        <a href="https://www.gmi.edu.my/"><img src="images/gmi.png" id="hypGMI" style="height: 200px;" target="_blank"></a><br />
+                        <a href="https://www.gmi.edu.my/">GMI Home Page</a>
+                        <!--<asp:HyperLink ID="hypGMI" runat="server" ImageUrl="~/images/gmi.png" ImageHeight="200px" NavigateUrl="https://www.gmi.edu.my/" Target="_blank" BorderStyle="None">GMI Home Page</asp:HyperLink>-->
+                    </td>
+                    <td style="text-align:center; width: 33%">
+                        <h4>Bachelor degree in physics</h4>
+                        <h4>2017 - 2021</h4>
+                        <a href="https://www.uni-leipzig.de/en"><img src="images/leipzig.png" id="hypLeipzig" style="height: 200px;" target="_blank"></a><br />
+                        <a href="https://www.uni-leipzig.de/en">Uni Leipzig Home Page</a>
+                        <!--<asp:HyperLink ID="hypLeipzig" runat="server" ImageUrl="~/images/leipzig.png" ImageHeight="200px" NavigateUrl="https://www.uni-leipzig.de/en" Target="_blank" BorderStyle="None">Uni Leipzig Home Page</asp:HyperLink>-->
+                    </td>
+                    <td style="text-align:center;">
+                        <h4>Bachelor degree in computer science</h4>
+                        <h4>2021 - 202_</h4>
+                        <a href="https://newinti.edu.my/"><img src="images/intistar.jpg" id="hypInti" style="height: 200px;" target="_blank"></a><br />
+                        <a href="https://newinti.edu.my/">INTI Home Page</a>
+                        <!--<asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/images/intistar.jpg" ImageHeight="200px" NavigateUrl="https://newinti.edu.my/" Target="_blank" BorderStyle="None">INTI Home Page</asp:HyperLink>-->
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center; font-size: 20px; padding-top: 20px; padding-bottom: 20px;">German Malaysian Institute (GMI), Malaysia</td>
+                    <td style="text-align:center; font-size: 20px;">Universität Leipzig, Germany</td>
+                    <td style="text-align:center; font-size: 20px;">INTI International University, Malaysia</td>
+                </tr>
+
+                <tr>
+                    <td style="text-align:center;">
+                        <button type="button" id="readMoreGmi" class="buttons" onclick="btnReadMoreGmi_Click()" style="border-style: none; font-size: 20px; background-color: #0066FF; color:white;">Read more</button>
+                    </td>
+                    <td style="text-align:center;">
+                        <button type="button" id="readMoreLeipzig" class="buttons" onclick="btnReadMoreLeipzig_Click()" style="border-style: none; font-size: 20px; background-color: #0066FF; color:white;">Read more</button>
+                    </td>
+                    <td style="text-align:center;">
+                        <button type="button" id="readMoreInti" class="buttons" onclick="btnReadMoreInti_Click()" style="border-style: none; font-size: 20px; background-color: #0066FF; color:white;">Read more</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--GMI Panel-->
+        <div id="panGMI" style="display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width:40%;"></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="font-size: 30px; padding-top:30px; color:darkorange; padding-bottom:30px;">
+                        <h1><span id="schoolName">German Malaysian Institute (GMI)</span></h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td id="gmiBackground" rowspan="3" style="background-image: url('images/gmiBuilding.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; width:40%; height:7cm;"></td>
+            
+                    <td>
+                        <h2>German A-Level preparatory programme (<a href="https://www.gmi.edu.my/pre-university-programme/german-a-level-preparatory-programme-gapp/" target="_blank">GAPP</a>)</h2>
+                        <ul id="cblALevel" style="font-size: 20px;">
+                            <li>Physics</li>
+                            <li>Chemistry</li>
+                            <li>Mathematics</li>
+                            <li>German (CIE A.S. level, TestDaF)</li>
+                            <li>Extra: Chinese (Top in the world result)</li>
+                            <li>Vorpraktikum: Basic industrial electronics and production technology</li>
+                        </ul>
+                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3>Result: All 'A's</h3>
+                        
+                        <span>Learn more about <a href="http://gapp2u.blogspot.com/p/vorpraktikum.html" target="_blank">Vorpraktikum</a>.</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--Uni Leipzig Panel-->
+        <div id="panLeipzig" style="display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td colspan="2" style="font-size: 30px; padding-top:30px; color:darkorange;">
+                        <h1>Universität Leipzig</h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <!--<td rowspan="2" id="LeipzigBackground" style="background-image: url('images/IPSP2.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; width:40%; height:7cm;"></td>-->
+                    <td rowspan="3" id="LeipzigBackground" style="width: 40%;">
+                        <img src="images/IPSP2.jpg" style="height: 9cm;">
+                    </td>
+                    <td colspan="3" style="vertical-align: top;">
+                        <h2>International Physics Study Programme (<a href="https://www.physgeo.uni-leipzig.de/en/studying/courses-of-study/bachelor-international-physics-studies-program-ipsp" target="_blank">IPSP</a>)</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="vertical-align:top; width: 17%; border: 3px dashed #0033cc;">
+                        <h3 style="text-align: center;">Physics classes</h3>
+                        <ul id="lbPhysics">
+                            <li>Classical mechanics</li>
+                            <li>Electrodynamics</li>
+                            <li>Atomic and molecular physics</li>
+                            <li>Thermodynamics and soft matter</li>
+                            <li>Quantum mechanics</li>
+                            <li>Solid state physics</li>
+                            <li>Statistical physics</li>
+                            <li>Semiconductor</li>
+                            <li>Introduction to photonics</li>
+                            <li>Bachelor thesis: CuI-based thin films</li>
+                        </ul>
+                    </td>
+                    <td style="vertical-align: top; width: 15%; border: 3px dashed lightseagreen;">
+                        <h3 style="text-align: center;">Mathematics</h3>
+                        <ul id="lbMath">
+                            <li>Calculus</li>
+                            <li>Linear algebra</li>
+                            <li>Numerical methods</li>
+                            <li>Vector calculus</li>
+                            <li>ODE & PDE</li>
+                        </ul>
+                    </td>
+
+                    <td style="vertical-align: top; width: 17%; border: 3px dashed #0033cc;">
+                        <h3 style="text-align: center;">Additional classes</h3>
+                        <ul id="lbAdditional">
+                            <li>Introduction to comp. software</li>
+                            <li>Introduction to physical modeling</li>
+                            <li>Introduction to chemistry</li>
+                            <li>Lab courses</li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <h4>Grade: 1.5 (German system) (Equivalent to CGPA = <a href="https://en.wikipedia.org/wiki/Academic_grading_in_Germany#Overview" target="_blank">3.5</a>)</h4>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!--INTI Panel-->
+        <div id="panINTI" style="display: none;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width:40%;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="font-size: 30px; padding-top:30px; color:darkorange; padding-bottom:30px;">
+                        <h1>INTI International University</h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td rowspan="2" id="intiBackground" style="background-image: url('images/intiBuild.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; width:40%; height:7cm;"></td>
+                    <td colspan="2">
+                        <h2 style="text-align: center;">Bachelor of Computer Science (Hons) (<a href="https://newinti.edu.my/programme/bachelor-of-computer-science-hons-coventry-uk/" target="_blank">BCSI</a>)</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" style="vertical-align:top;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:33%; vertical-align:top; border: 3px dashed #0033cc;">
+                                    <h3 style="text-align: center;">Level 1</h3>
+                                    <ul>
+                                        <li>System analysis and design</li>
+                                        <li>Programming techniques</li>
+                                        <li>Mathematics for computing</li>
+                                        <li>Computer architecture</li>
+                                        <li>Information security and ethics</li>
+                                        <li>Graphic animations</li>
+                                        <li>IT infrastructure landscape</li>
+                                        <li>Fundamentals of operating system</li>
+                                        <li>Introduction to database systems</li>
+                                        <li>Object-oriented programming</li>
+                                        <li>Introduction to data analytics</li>
+                                    </ul>
+                                </td>
+
+                                <td style="width:33%; vertical-align:top; border: 3px dashed lightseagreen;">
+                                    <h3 style="text-align: center;">Level 2</h3>
+                                    <ul>
+                                        <li>Software engineering</li>
+                                        <li>Quantitative method</li>
+                                        <li>Computer communications and networks</li>
+                                        <li>IT project management</li>
+                                        <li>System development tools and technique</li>
+                                        <li>Data structure and algorithm</li>
+                                        <li>Web application development</li>
+                                        <li>Software testing</li>
+                                        <li>Software quality</li>
+                                    </ul>
+                                </td>
+
+                                <td style="vertical-align:top; border: 3px dashed #0033cc;">
+                                    <h3 style="text-align: center;">Level 3</h3>
+                                    <ul>
+                                        <li>Project I</li>
+                                        <li>Project II</li>
+                                        <li>Web programming</li>
+                                        <li>ERP programming</li>
+                                        <li>UX design</li>
+                                        <li>Artificial intelligence</li>
+                                        <li>Concurrent and real-time system</li>
+                                        <li>Machine learning</li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3">
+                                    <h4>Current CGPA: 3.79 / 4</h4>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <!--Separator table-->
+    <div style="padding-left:60px;">
+        <br />
+        <table style="width: 95%;">
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+            <tr>
+                <td id="skills">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <!--Skills section-->
+    <div style="padding-left:60px; font-family:Courier New, Courier, monospace;">
+        
+        <!--Skills section title-->
+        <h1 style="font-size:60px; color:darkorange; text-align:center"><span class="auto-type2"></span></h1>
+
+        <!--Programming languages subsection-->
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <!--Subsection title-->
+                    <h2 style="font-size:40px;">Programming Languages etc.</h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:33%;"></td>
+                <!--Subsection title underline-->
+                <td style="width:33%; padding-left:30px;"><hr style="width:20%;" /></td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">Python</h4>
+                </td>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">C++</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">JavaScript</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="background-image: url('images/python.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/cpp.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/javascript.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">Java</h4>
+                </td>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">HTML</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">CSS</h4>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-image: url('images/java.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/html.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/css2.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">Markdown</h4>
+                </td>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">LaTeX</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">Git</h4>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-image: url('images/markdown.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/LaTeX.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/git.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">PHP</h4>
+                </td>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">NumPy</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">SciPy</h4>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-image: url('images/php.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/NumPy.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/scipy.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">MatPlotLib</h4>
+                </td>
+                <td style="text-align:center; width:33%;">
+                    <h4 style="font-size:20px">Pandas</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">Jupyter</h4>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-image: url('images/matplotlib.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/pandas2.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/jupyter.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="height:3cm;"></td>
+            </tr>
+        </table>
+
+        <!--Human languages subsection-->
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <!--Subsection title-->
+                    <h2 style="font-size:40px;">Natural Languages</h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:33%;"></td>
+                <!--Subsection title underline-->
+                <td style="width:33%; padding-left:30px;"><hr style="width:20%;" /></td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">Mandarin</h4>
+                </td>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">English</h4>
+                </td>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">Malay</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">German</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="background-image: url('images/china.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:6cm;"></td>
+                <td style="background-image: url('images/uk.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:6cm;"></td>
+                <td style="background-image: url('images/malaysia.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:6cm;"></td>
+                <td style="background-image: url('images/germany.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:6cm;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="text-align:center; padding-top:20px; padding-bottom:10px;">
+                    <!--More info on human languages button-->
+                    <button id="btnLangMore" class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="moreLangFunc()">More</button>
+                </td>
+            </tr>
+
+            <tr id="moreLanguage" style="visibility:collapse;">
+                <td>
+                    <ul id="blChinese">
+                        <li>Native speaker</li>
+                        <li>Read, write, listen, speak</li>
+                        <li>Include Cantonese, Hakka</li>
+                        <li>Sijil Pelajaran Malaysia (SPM): A-</li>
+                    </ul>
+                </td>
+
+                <td>
+                    <ul id="blEng">
+                        <li>Second language</li>
+                        <li>IELTS: 7.5/10</li>
+                        <li>Read, write, listen, speak</li>
+                        <li>School and work</li>
+                    </ul>
+                </td>
+
+                <td>
+                    <ul id="blMalay">
+                        <li>National language</li>
+                        <li>SPM: A</li>
+                        <li>Good in reading</li>
+                        <li>Able to carry out normal daily-conversation</li>
+                    </ul>
+                </td>
+
+                <td>
+                    <ul id="blGerman">
+                        <li>TestDaF: 17/20</li>
+                        <li>Good in reading</li>
+                        <li>Able to carry out normal daily-conversation</li>
+                        <li>Able to write simple email</li>
+                    </ul>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="height:3cm;"></td>
+            </tr>
+
+        </table>
+
+        <!--Soft skills subsection-->
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <!--Subsection title-->
+                    <h2 style="font-size:40px;">Soft Skills</h2>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:33%;"></td>
+                <!--Subsection title underline-->
+                <td style="width:33%; padding-left:30px;"><hr style="width:20%;" /></td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="width: 100%;">
+            <tr>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">Good listener</h4>
+                </td>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">Good communicator</h4>
+                </td>
+                <td style="text-align:center; width:25%;">
+                    <h4 style="font-size:20px">Good team player</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4 style="font-size:20px">Responsible</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="background-image: url('images/listener.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/communicator.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/teamplayer.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/trust.jpg'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="height:3cm;"></td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--Separator table-->
+    <div style="padding-left:60px;">
+        <br />
+        <table style="width: 95%;">
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+            <tr>
+                <td id="projects">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!--Past projects subsection-->
+    <div style="padding-left:60px; font-family:Courier New, Courier, monospace;">
+        <h1 style="font-size:60px; color:darkorange; text-align:center"><span class="auto-type5"></span></h1>
+        
+        <!--Websites & Python Project subsection-->
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <!--Websites & Python Project subsubsection title-->
+                    <h3 style="font-size:25px; color:darkturquoise">Websites & Python Project</h3>
+                </td>
+            </tr>
+            
+            <tr>
+                <td style="width:33%; text-align:center;">
+                    <h4>A physics GitHub page</h4>
+                </td>
+                <td style="width:33%; text-align:center;">
+                    <h4>A tutorial Read-the-Docs page</h4>
+                </td>
+                <td style="text-align:center;">
+                    <h4>Binder page to the Python Project</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="background-image: url('images/FTLWebsite.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/readTheDocs.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+                <td style="background-image: url('images/doublePendulum.png'); background-repeat: no-repeat; background-position: center; background-size:contain; height:8cm;"></td>
+            </tr>
+
+            <tr>
+                <td style="text-align:center; padding-top:10px;"><button class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="window.open('https://stevenleeww.github.io/Faster-than-light/','_blank')">Visit</button></td>
+                <td style="text-align:center; padding-top:10px;"><button class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="window.open('https://documentation-using-read-the-docs.readthedocs.io/en/latest/Documentation_readthedocs.html','_blank')">Visit</button></td>
+                <td style="text-align:center; padding-top:10px;"><button class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="window.open('https://mybinder.org/v2/gh/StevenLeeWW/doublePendulum/HEAD','_blank')">Visit</button></td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="height:3cm;"></td>
+            </tr>
+        </table>
+
+        <!--Physics videos and OpenGL animation subsection-->
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="3" style="text-align:center">
+                    <!--Physics videos and OpenGL animation subsubsection title-->
+                    <h3 style="font-size:25px; color:darkturquoise">Physics videos and OpenGL animation</h3>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:33%; text-align:center; vertical-align:top;">
+                    <h4>Physics video: Demystify the DCQE experiment</h4>
+                </td>
+                <td style="width:33%; text-align:center; vertical-align:top;">
+                    <h4>Violating the energy conservation law?</h4>
+                </td>
+                <td style="text-align:center; vertical-align:top;">
+                    <h4>OpenGL animation</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td style="width:33%; text-align:center;"><iframe style="height:8cm; width:95%; border-style:none;" src="https://www.youtube.com/embed/SiVfvtwfmAw" title="Demystify the delayed choice quantum eraser" allow="accelerometer; gyroscope; picture-in-picture"></iframe></td>
+                <td style="width:33%; text-align:center;"><iframe style="height:8cm; width:95%; border-style:none;" src="https://www.youtube.com/embed/9Yq1FGYDXgI" title="How to violate the energy conservation law?" allow="accelerometer; gyroscope; picture-in-picture"></iframe></td>
+                <td style="text-align:center;"><iframe style="height:8cm; width:95%; border-style:none;" src="https://www.youtube.com/embed/-w7DAqfvulc" title="OpenGL animation demonstration" allow="accelerometer; gyroscope; picture-in-picture"></iframe></td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <!--Separator table-->
+    <br />
+    <div style="padding-left:60px;">
+        <table style="width: 95%;">
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+
+            <tr>
+                <td id="contact">
+                    <hr />
+                </td>
+            </tr>
+
+            <tr>
+                <td style="height:2.5cm;"></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <!--Contact section-->
+    <div style="padding-left:60px; font-family:'Courier New', Courier, monospace;">
+
+        <!--Contact section title-->
+        <h1 style="font-size: 60px; color: darkorange; text-align:center;"><span class="auto-type3"></span></h1>
+
+        <div style="width: 100%;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 33%; text-align: center;">
+                        <a href="https://www.linkedin.com/in/wen-wu-lee-5b5368172" target="_blank"><img src="images/linkedin.png" style="height: 3cm;"></a>
+                    </td>
+                    <td style="width: 33%; text-align: center;">
+                        <img src="images/email.png" style="height: 3cm; cursor: pointer;" id="emailButton">
+                    </td>
+                    <td style="text-align: center;">
+                        <a href="https://www.facebook.com/StevenLeeWenWu" target="_blank"><img src="images/facebook.png" style="height: 3cm;"></a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center; padding-top: 1cm;">
+                        <button class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="window.open('https://www.linkedin.com/in/wen-wu-lee-5b5368172','_blank')">Visit</button>
+                    </td>
+                    <td style="text-align: center; padding-top: 1cm;">
+                        <button type="button" id="showEmail" class="buttons" onclick="showEmail_Click()" style="border-style: none; font-size: 20px; background-color: #0066FF; color:white;">Show Email</button>
+                    </td>
+                    <td style="text-align: center; padding-top: 1cm;">
+                        <button class="buttons" style="font-size:20px; border-style:none; background-color: #0066FF; color:white;" type="button" onclick="window.open('https://www.facebook.com/StevenLeeWenWu','_blank')">Visit</button>
+                    </td>
+                </tr>
+
+                <tr id="email" style="visibility: collapse;">
+                    <td>&nbsp;</td>
+                    <td style="text-align: center; padding-top: 1cm;">
+                        leewwsteven@gmail.com
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" style="height:3cm;"></td>
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+    <!--Separator & Thank you section-->
+    <div style="padding-left:60px; font-family:'Courier New', Courier, monospace; width:95%;">
+        <table style="width: 100%;">
+            <tr>
+                <td style="height:1cm;"></td>
+            </tr>
+                        
+            <tr>
+                <td style="text-align:center; height:4cm;">
+                    <h1 style="font-size: 60px; color: darkorange; text-align:center;"><span class="auto-type4"></span></h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--JavaScript for auto-typing animation-->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var type0 = new Typed(".auto-type0", {
+            strings: ["Hello World!"],
+            typeSpeed: 150,
+            loop: false,
+        })
+
+        var type1 = new Typed(".auto-type1", {
+            strings: ["Education"],
+            typeSpeed: 300,
+            loop: false,
+        })
+
+        var type2 = new Typed(".auto-type2", {
+            strings: ["Skills"],
+            typeSpeed: 300,
+            loop: false,
+        })
+
+        var type3 = new Typed(".auto-type3", {
+            strings: ["Contact"],
+            typeSpeed: 300,
+            loop: false,
+        })
+
+        var type4 = new Typed(".auto-type4", {
+            strings: ["Thank you!"],
+            typeSpeed: 300,
+            loop: false,
+        })
+
+        var type5 = new Typed(".auto-type5", {
+            strings: ["Past Projects"],
+            typeSpeed: 300,
+            loop: false,
+        })
+    </script>
+
+</body>
+
+</html>
